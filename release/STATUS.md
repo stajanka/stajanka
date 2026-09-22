@@ -1,6 +1,6 @@
 # Release status — 2026-09-22
 
-App: Stajanka / Стаянка, `by.stajanka.app`, version 1.0.0 (3).
+App: Stajanka / Стаянка, `by.stajanka.app`, version 1.0.0 (4).
 App Store Connect record: `6814781315`.
 
 ## Completed
@@ -18,11 +18,15 @@ App Store Connect record: `6814781315`.
 - Localized privacy-policy and privacy-choices URLs are now saved for Russian and English. The documented App Store Connect API accepted both updates with HTTP 200; subsequent independent GET requests confirmed persistence. The existing account API key was used without creating or changing credentials.
 - The latest source was rebuilt and launched in the iPhone simulator in normal interactive mode, without screenshot fixtures.
 
+- The publisher reported successful real-payment and payment-page data-processing checks in the updated window, with web analytics and no advertising tracking.
+- Version metadata in Russian and English now matches the checked-in descriptions, including explicit transmission of the selected plate and parking parameters. Both were saved and verified through the public API.
+- Build 4 includes clarified bundled policies in all three languages; its signed archive was verified against the source documents.
+
 ## Still required before submission
 
-- Finish and publish App Privacy answers. Six known data types are saved as a draft: name, email, payment information, user ID, purchases and other data (including vehicle/parking information). These are not a completed or published privacy label. Confirm the analytics/tracking behavior of embedded provider pages before finalizing purposes and tracking declarations.
-- Verify the last metadata wording updates after App Store Connect saves them. Screenshot galleries have been arranged in the order map, zone, payment, vehicles, timer and garage.
-- Exercise an actual card/3-D Secure payment through the current WKWebView container on a physical device. Previous real payments and current native callback fixtures passed, but the current container has not completed that final live-device check.
+- Finish and publish the nine-category App Privacy questionnaire described in privacy-review.md.
+
+
 - Establish any necessary third-party service rights; do not infer an official partnership or permission from public accessibility alone.
 
 The app has **not been submitted for review or released**. Upload success does not mean App Review approval.

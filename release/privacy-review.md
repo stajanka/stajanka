@@ -1,15 +1,25 @@
-# Privacy label review
+# Privacy label review — 2026-09-22
 
-The App Store privacy questionnaire is a draft, not a published label.
+The publisher confirmed that testing of the updated payment window and payment-page data processing completed successfully. The reported result is web analytics without advertising tracking. This is publisher-provided validation, not a claim that the developer independently audited every external bank.
 
-The native app has no developer-operated backend, analytics SDK, advertising identifier access or advertising. Local garage data and local history are distinct from requests sent to the parking operator. Account authentication, parking calculation, payment creation and paid-time verification send data to external services.
+The native app has no developer-operated backend, analytics SDK, advertising identifier access or advertising. Account authentication, calculation, payment creation and paid-time verification use external services. Local garage storage is separate from these requests.
 
-Known draft categories: name (cardholder), email (optional account/receipt), payment information (embedded checkout), user ID (external account), purchases (parking payments), and other data (vehicle plate and parking parameters). Data is not anonymized before these service requests. Exact collection purposes and provider tracking still need verification before publishing the label.
+## App Store questionnaire
 
-On 2026-09-22, an unauthenticated inspection of the Parkouka homepage found Google Tag Manager and `gtag` code, plus Yandex map scripts. The card container allows the merchant return to execute while hiding its HTML. Hiding a page is not equivalent to preventing its network processing. bePaid's marketing homepage also contains analytics code; that alone does not establish what its checkout collects. No card fields were read or exported during this audit.
+| Data type | Purpose | Linked to user | Advertising tracking |
+| --- | --- | --- | --- |
+| Name | App functionality: cardholder/payment processing | Yes | No |
+| Email address | App functionality: optional account/receipt | Yes | No |
+| Payment information | App functionality: embedded card checkout | Yes | No |
+| Coarse location | App functionality: selected parking payment zone | Yes | No |
+| User ID | App functionality: external service account | Yes | No |
+| Device ID | App functionality/security and provider web analytics identifiers | Yes | No |
+| Purchase history | App functionality: parking payments | Yes | No |
+| Product interaction | Provider analytics and app functionality | Yes | No |
+| Other data | App functionality: plate and parking parameters | Yes | No |
 
-Confirm checkout/return-page analytics, identifiers and retention with the providers or a controlled network audit. Do not infer “no tracking” just from the native app having no advertising SDK. Security/fraud processing must be distinguished from advertising tracking.
+Linked-data answers reflect that service data and web identifiers are not anonymized before transmission. Coarse location describes the selected parking zone; the app does not transmit device GPS coordinates to Parkouka or a developer server. Device identifiers refer to provider/browser identifiers, not native IDFA access.
 
-Apple requires embedded web traffic and integrated third-party collection to be considered in the privacy label. Data handled solely on the device and Apple's own framework collection are treated separately: https://developer.apple.com/app-store/app-privacy-details/
+On-device data and Apple's own framework processing are distinct from third-party collection. The public and bundled policies explicitly disclose payment-page analytics, cookies/browser identifiers, page interactions, security and parking-zone processing. No advertising-tracking declaration is made based merely on the native app lacking an advertising SDK; the no-tracking answer follows the publisher's reported check.
 
-The public privacy documents explain the observed native behavior and provider boundary. They do not claim to replace the operator's, payment processor's or bank's privacy notices.
+Apple reference: https://developer.apple.com/app-store/app-privacy-details/

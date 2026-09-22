@@ -1,6 +1,6 @@
 # Release materials
 
-Version: 1.0.0, build 3. Bundle: `by.stajanka.app`. Supported target: iPhone, iOS 17+.
+Version: 1.0.0, build 4. Bundle: `by.stajanka.app`. Supported target: iPhone, iOS 17+.
 
 This directory contains public-safe policies, branding, App Store metadata and simulator screenshots. No personal account, payment token or real user plate belongs here.
 

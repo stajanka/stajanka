@@ -28,7 +28,7 @@
     },
     {
       "title": "Analytics and support",
-      "body": "The native app contains no advertising SDK, advertising identifier access or developer analytics service. The developer does not sell personal data or use it for advertising profiles. If you email support, the developer receives your email address and the information you choose to include, for handling that request and any applicable recordkeeping duties. Do not send card numbers, CVCs, banking passwords or one-time codes."
+      "body": "The native app contains no advertising SDK, advertising identifier access or developer analytics service. Embedded payment and merchant pages use web analytics, including cookie or browser identifiers and information about page interactions. These data support analytics, operation and security of the external services; they are not used for cross-service advertising tracking. The selected parking zone also conveys an approximate parking location, without transmitting GPS coordinates. The developer does not sell personal data or use it for advertising profiles. If you email support, the developer receives your email address and the information you choose to include, for handling that request and any applicable recordkeeping duties. Do not send card numbers, CVCs, banking passwords or one-time codes."
     },
     {
       "title": "Deletion and your choices",
