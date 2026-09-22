@@ -20,16 +20,18 @@ App Store Connect record: `6814781315`.
 
 - The publisher reported successful real-payment and payment-page data-processing checks in the updated window, with web analytics and no advertising tracking.
 - Version metadata in Russian and English now matches the checked-in descriptions, including explicit transmission of the selected plate and parking parameters. Both were saved and verified through the public API.
-- Build 4 includes clarified bundled policies in all three languages; its signed archive was verified against the source documents.
+- Build 4 includes clarified bundled policies in all three languages; its signed archive was verified against the source documents. Apple processed it successfully, and its attachment to version 1.0.0 was confirmed by an independent API read. The simulator was updated to build 4.
+- All 12 App Store screenshot reservations were finalized through the public API with matching MD5 checksums. Every asset is COMPLETE. Display order was separately saved and read back for both localizations.
+- All nine App Privacy categories are configured. Empty duplicate name/email records left by timed-out saves were removed through the normal editor, enabling Publish.
 
 ## Still required before submission
 
-- Finish and publish the nine-category App Privacy questionnaire described in privacy-review.md.
+- Confirm Apple's final privacy-publication declaration, then publish the prepared answers and submit the version for review. The final confirmation dialog is open.
 
 
-- Establish any necessary third-party service rights; do not infer an official partnership or permission from public accessibility alone.
+- Retain support for the publisher's third-party-content rights declaration if Apple requests it; no official operator partnership is claimed.
 
-The app has **not been submitted for review or released**. Upload success does not mean App Review approval.
+An empty review-submission draft has been created; its final item is gated on published privacy answers. The app has **not been submitted for review or released**. Upload success does not mean App Review approval.
 
 Privacy-label reference: https://developer.apple.com/app-store/app-privacy-details/ (including embedded web traffic and third-party collection).
 
