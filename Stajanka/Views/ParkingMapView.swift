@@ -283,6 +283,22 @@ struct ParkingMapView: View {
     }
   }
   private func select(_ zone: ParkingZone) {
+    #if DEBUG
+      if model.isScreenshotSession {
+        var transaction = Transaction(animation: nil)
+        transaction.disablesAnimations = true
+        withTransaction(transaction) {
+          model.selectedZone = zone
+          camera = .region(
+            MKCoordinateRegion(
+              center: .init(
+                latitude: zone.coordinate.latitude - 0.0016,
+                longitude: zone.coordinate.longitude),
+              span: .init(latitudeDelta: 0.009, longitudeDelta: 0.009)))
+        }
+        return
+      }
+    #endif
     withAnimation(.easeInOut(duration: 0.3)) {
       model.selectedZone = zone
       camera = .region(

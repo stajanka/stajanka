@@ -1,5 +1,6 @@
 #if DEBUG
   import Foundation
+  import UIKit
 
   /// Used only by the isolated simulator screenshot tests. Excluded from Release.
   @MainActor
@@ -8,6 +9,7 @@
       ProcessInfo.processInfo.arguments.contains("--app-store-screenshots")
     }
     static func seed(_ model: AppModel) {
+      UIView.setAnimationsEnabled(false)
       let args = ProcessInfo.processInfo.arguments
       let language =
         args.firstIndex(of: "--screenshot-language").flatMap {
@@ -31,7 +33,7 @@
       let formatter = ISO8601DateFormatter()
       let end = now.addingTimeInterval(3600)
       let quote = ParkingQuote(
-        plate: "1234AA7", zoneID: "710", zoneTitle: "Зона 710",
+        plate: "1234AA7", zoneID: "710", zoneTitle: L("Парковочная зона %@", "710"),
         start: formatter.string(from: now.addingTimeInterval(-1800)),
         validTill: formatter.string(from: end), hours: 2, isExtension: false, tariff: 1,
         amount: "4.0", eripURL: nil, createdAt: now, countryCode: "BY")

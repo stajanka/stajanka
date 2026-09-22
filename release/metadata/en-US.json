@@ -1,0 +1,10 @@
+{
+  "name": "Stajanka",
+  "subtitle": "Parking in Minsk, made simple",
+  "promotionalText": "Find parking, manage your vehicles and pay through ERIP or bePaid. Available in Belarusian, Russian and English.",
+  "description": "Stajanka helps you find and pay for parking in Minsk, Belarus. Choose an area on the map, check the zone number against the parking sign, select your vehicle and duration, and get a quote from the parking service.\n\nFeatures:\n• parking-zone map, street search and accessible zoom controls;\n• optional location to find nearby parking;\n• a garage for multiple vehicles, countries and flags;\n• quick vehicle switching at checkout;\n• ERIP and secure card checkout through bePaid;\n• paid-time verification and a parking countdown;\n• local expiry reminders when notifications are allowed;\n• Belarusian by default, with Russian and English available.\n\nThe core experience requires no registration. Your garage and local history are stored on your device. The selected plate and parking details are sent to Parkouka.by to calculate, pay for and verify parking. Connecting an existing Parkouka.by account is optional. Stajanka does not request vehicle ownership documents or access fines.\n\nThe app is free; real-world parking is charged at the operator’s rates. Stajanka is an independent client, not the official app of Parkouka.by or a parking operator. Parking information and price calculation are supplied by Parkouka.by. Verification requires internet access and runs while the app is open. Always check the zone on the sign, verify the bank’s payment result, and follow parking rules.",
+  "keywords": "parking,Minsk,Belarus,car,garage,map,timer,ERIP,park,vehicle",
+  "supportURL": "https://github.com/stajanka/stajanka/blob/main/release/policies/support-en.md",
+  "privacyPolicyURL": "https://github.com/stajanka/stajanka/blob/main/release/policies/privacy-en.md",
+  "copyright": "2026 Daniil Bortnik"
+}

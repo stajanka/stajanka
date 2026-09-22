@@ -1,0 +1,11 @@
+Stajanka is an independent native parking client for Minsk, Belarus. Core map, garage, price calculation, payment checkout and paid-time verification do not require sign-in. The app does not create a Stajanka account. The optional account screen connects an existing external Parkouka.by account.
+
+Review the map remotely without granting location: it opens in central Minsk. Search for a street, select a parking zone, add a demonstration plate and select a duration to inspect the calculation. Do not complete a real parking payment unless you intend to purchase that real-world service. ERIP and bePaid payments pay the parking operator, not for digital app features; the app adds no subscription or service fee.
+
+The default interface is Belarusian. Use the globe in the garage to switch to Russian or English. Tap a plate at checkout to switch/add a vehicle. A visible garage Delete button removes a vehicle locally. About and data contains bundled policies, support and full local-data deletion. No vehicle ownership documents or fines are requested.
+
+Card checkout keeps bank/3-D Secure pages visible, processes the merchant return without displaying the merchant website, then independently verifies the paid period. A redirect alone never marks a payment successful. Verification runs while the app is foregrounded; local notifications require permission.
+
+Screenshots were captured from the native simulator with fictional demonstration vehicles and illustrative parking data. No personal account or real user's plate is shown.
+
+Third-party service authorization must be established under applicable terms; no official partnership or permission is claimed by these notes.
