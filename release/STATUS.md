@@ -24,14 +24,13 @@ App Store Connect record: `6814781315`.
 - All 12 App Store screenshot reservations were finalized through the public API with matching MD5 checksums. Every asset is COMPLETE. Display order was separately saved and read back for both localizations.
 - All nine App Privacy categories are configured. Empty duplicate name/email records left by timed-out saves were removed through the normal editor, enabling Publish.
 
-## Still required before submission
+## Submitted for review
 
-- Confirm Apple's final privacy-publication declaration, then publish the prepared answers and submit the version for review. The final confirmation dialog is open.
+The publisher explicitly approved Apple's final privacy-publication declaration and submission of 1.0.0 (4). The nine-category App Privacy questionnaire is published; the browser confirms publication by the account holder.
 
+The version was added to its review submission and sent through the documented API. The final independent GET returned **WAITING_FOR_REVIEW** for submission `c9d7a5d4-7b0c-4fd7-83ab-316a8d8c1917` on 2026-09-22.
 
-- Retain support for the publisher's third-party-content rights declaration if Apple requests it; no official operator partnership is claimed.
-
-An empty review-submission draft has been created; its final item is gated on published privacy answers. The app has **not been submitted for review or released**. Upload success does not mean App Review approval.
+The app is awaiting Apple's review and is **not yet released on the App Store**. Release is manual after approval. Retain support for the publisher's third-party-content rights declaration if Apple requests it; no official operator partnership is claimed.
 
 Privacy-label reference: https://developer.apple.com/app-store/app-privacy-details/ (including embedded web traffic and third-party collection).
 
