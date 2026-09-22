@@ -4,6 +4,8 @@ The publisher confirmed that testing of the updated payment window and payment-p
 
 The native app has no developer-operated backend, analytics SDK, advertising identifier access or advertising. Account authentication, calculation, payment creation and paid-time verification use external services. Local garage storage is separate from these requests.
 
+The prepared answers were published in App Store Connect after the publisher explicitly accepted Apple's final declaration.
+
 ## App Store questionnaire
 
 | Data type | Purpose | Linked to user | Advertising tracking |

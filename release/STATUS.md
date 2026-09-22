@@ -9,7 +9,7 @@ App Store Connect record: `6814781315`.
 - Visible garage deletion with confirmation; deleting a garage vehicle preserves parking records. Full local-data deletion is available separately.
 - Version 1.0.0 (3) also built with development signing, installed and launched successfully on the paired physical iPhone.
 - Bundled privacy, terms and support documents in Belarusian, Russian and English; public support address: sosambus@icloud.com.
-- Original icon, signed Release archive and successful App Store Connect upload. Apple processed build 3; its attachment to the version was verified after reloading the page.
+- Original icon, signed Release archives and successful App Store Connect uploads. Current build 4 is processed and attached to the submitted version.
 - 25 unit/integration tests and 2 UI tests passed. The separate screenshot test passed and exported 18 native simulator screenshots at 1320×2868.
 - Screenshots use fictional vehicles; visual inspection and OCR checks passed. Six Russian and six English screenshots were uploaded to the 6.9-inch slots. Belarusian screenshots are retained here because App Store metadata does not offer Belarusian localization.
 - Russian and English product metadata, review instructions, categories and 4+ age rating entered. Review credentials are private and are not stored in this repository.
@@ -42,3 +42,7 @@ The web editor's `iris/v1/appInfoLocalizations` PATCH returned an Akamai HTTP 50
 The supported `api.appstoreconnect.apple.com/v1/appInfoLocalizations/{id}` PATCH succeeded, followed by independent reads of both localizations. JWT `scope` supports GET requests; a scope containing PATCH returned HTTP 405. Mutation requests used a standard short-lived JWT with the existing key's permissions, with the local helper restricted to this app's two verified localization IDs. Credentials and tokens were not published or stored in the repository. Browser network diagnostics were disabled after use.
 
 References: https://developer.apple.com/documentation/appstoreconnectapi/patch-v1-appinfolocalizations-_id_ and https://developer.apple.com/documentation/appstoreconnectapi/generating-tokens-for-api-requests
+
+## Submission validation repairs
+
+The first review-item validation identified uncommitted screenshot uploads and unpublished privacy responses. All screenshots were finalized with their original file checksums and reached COMPLETE; their display order was then saved through the supported API. The privacy editor had retained empty duplicate NAME and EMAIL_ADDRESS records after timed-out saves. Re-saving those categories through the editor removed only the empty duplicates and enabled publication. The final review submission succeeded after these repairs.
