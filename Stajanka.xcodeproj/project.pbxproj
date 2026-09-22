@@ -1,0 +1,712 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24467CCC52859AF6E39E0861 /* privacy-be.json in Resources */ = {isa = PBXBuildFile; fileRef = AD04AC60DF551E63E255CAAB /* privacy-be.json */; };
+		2BAA5B633765A82AE32DEDF7 /* CardCheckoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A98F557ED0033FD4686936 /* CardCheckoutTests.swift */; };
+		2C2E194EDE66A967B6EE2D5A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C62640B737A06CC597BF86C /* InfoPlist.strings */; };
+		2D71CB9143D338750BFD30B5 /* terms-be.json in Resources */ = {isa = PBXBuildFile; fileRef = 05865B9AA208F49F587C963A /* terms-be.json */; };
+		2E675766CF57594E3B373589 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFEF06DC231776A869B6E553 /* Localizable.strings */; };
+		3290536B83AA4386657CF3FB /* ScreenshotScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B307154967BCE310E4A98BC /* ScreenshotScenario.swift */; };
+		396941BDCF76A1B544F08184 /* ParkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ADE40253A3EB91EEE0614B /* ParkingTests.swift */; };
+		43E21934FD7906218A44FC4D /* terms-ru.json in Resources */ = {isa = PBXBuildFile; fileRef = CA3A032CFF4322D5308011B8 /* terms-ru.json */; };
+		4E8511A0F6A191CDDA033186 /* support-en.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DA895E9E509411477CE8587 /* support-en.json */; };
+		5637C2147A78E90E2143334E /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101E861521B64C7758F4060 /* Design.swift */; };
+		58526D911F882671041B7D9D /* ParkoukaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ADB6EDC4CD71380D6B8FAA /* ParkoukaAPI.swift */; };
+		688CD518F36CF20F9AA721C7 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB4C4D892C1DDAA74C6D4 /* Localization.swift */; };
+		6CB3CAB40D652D4680B482B9 /* privacy-en.json in Resources */ = {isa = PBXBuildFile; fileRef = 6139D933EBC09B9F234CA55A /* privacy-en.json */; };
+		6F41F769A2D672D70ACB4BF7 /* support-ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E9F27047391870058D4A054 /* support-ru.json */; };
+		743F04E38868ED04A041C914 /* CardCheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830895BEB4162727D5B9D7E /* CardCheckoutView.swift */; };
+		7511969CB4389DF226675661 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D701BCB66C350F42922F2DD2 /* PaymentView.swift */; };
+		783968F63EC461C07CCF92AE /* SelectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99A67D1FB9139F20159E356 /* SelectionViews.swift */; };
+		7DA0707C32639ED61687E1E8 /* SessionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F641894F4DD9B893552BB /* SessionsView.swift */; };
+		8C2E96D18E39AB091E785234 /* LocalizationVehicleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5D9D5EC322A9D0B541F7FD /* LocalizationVehicleTests.swift */; };
+		904AE5F3235A147E4BD1829E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89448D55F73302B3B31633D9 /* OnboardingView.swift */; };
+		91971F3EF370C5D0494C37EC /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0845D194831876AD9B63F01A /* AboutView.swift */; };
+		9306B4933B838E555E346A85 /* zones.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AD77F8D094AB38EF740C121 /* zones.json */; };
+		94142952348A17004321FDB3 /* ReleaseReadinessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C358BCA422F55D7B6A750C3 /* ReleaseReadinessTests.swift */; };
+		9646EC7A58FF0B60954409AF /* AppStoreScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70036B2264A8AF2EA3366C9A /* AppStoreScreenshots.swift */; };
+		96E574DC32B2307F1C2097F1 /* privacy-ru.json in Resources */ = {isa = PBXBuildFile; fileRef = B976D157A37F34B6D15304BB /* privacy-ru.json */; };
+		9E2C5292EB7BA0D80F4FEAF7 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E199EA5A31FC74889F27C8 /* AppModel.swift */; };
+		A00795DC1C06BC3A189FDF48 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9CC5DD06C641E2575CE5DB2F /* PrivacyInfo.xcprivacy */; };
+		B8BC787E6F729E12C788D484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC03612BFF287F9D6C22D264 /* Assets.xcassets */; };
+		C1584D87ADF84C6138FD880C /* terms-en.json in Resources */ = {isa = PBXBuildFile; fileRef = B5CA034E7B4C2B05E3C5753C /* terms-en.json */; };
+		C16FC4BB47D30D93B0C517CC /* CardCheckoutNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206B81604816C7B23B6C6FA5 /* CardCheckoutNavigation.swift */; };
+		C4D57B9BE772C3D3599DE52F /* support-be.json in Resources */ = {isa = PBXBuildFile; fileRef = 37E57EA5CF0732A55056E5DF /* support-be.json */; };
+		D2CAB0D884C6B1B19937C608 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A786ECD82024ABDEB3266820 /* Models.swift */; };
+		D425777C710DC469F78FC933 /* ParkingMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2090E443AEC855BCFA8163 /* ParkingMapView.swift */; };
+		DDAA0D1178A490A4E4A08ADD /* VehicleViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E06DCEC12A3CE13B79972D5 /* VehicleViews.swift */; };
+		E7FF3B90030E40516CB6E0F3 /* StajankaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F7B4E4FEDE948943AC0AC /* StajankaUITests.swift */; };
+		FF259CBC3DF21B17093D7E93 /* StajankaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFA66F64AF32F5F6EBC86B3 /* StajankaApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48C80FE4F1C81DEF179809D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E7E9E20932201E6F64A332B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9E0F965AAC0E5E42BB06F13;
+			remoteInfo = Stajanka;
+		};
+		C76F24E870C4A7E94D3509B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E7E9E20932201E6F64A332B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9E0F965AAC0E5E42BB06F13;
+			remoteInfo = Stajanka;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05865B9AA208F49F587C963A /* terms-be.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "terms-be.json"; sourceTree = "<group>"; };
+		0612796E267C2369C8EB3A41 /* be */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = be; path = be.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0845D194831876AD9B63F01A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		1830895BEB4162727D5B9D7E /* CardCheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCheckoutView.swift; sourceTree = "<group>"; };
+		1E9F27047391870058D4A054 /* support-ru.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "support-ru.json"; sourceTree = "<group>"; };
+		206B81604816C7B23B6C6FA5 /* CardCheckoutNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCheckoutNavigation.swift; sourceTree = "<group>"; };
+		273EB3EFF106B1FD3F2F8EE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2C7E7B1BB0A1C2F47849D5FE /* StajankaTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StajankaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		36E199EA5A31FC74889F27C8 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		37E57EA5CF0732A55056E5DF /* support-be.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "support-be.json"; sourceTree = "<group>"; };
+		4AD77F8D094AB38EF740C121 /* zones.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = zones.json; sourceTree = "<group>"; };
+		4C358BCA422F55D7B6A750C3 /* ReleaseReadinessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseReadinessTests.swift; sourceTree = "<group>"; };
+		4C4CF40A71ECE20ECF58A110 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4DA895E9E509411477CE8587 /* support-en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "support-en.json"; sourceTree = "<group>"; };
+		584F641894F4DD9B893552BB /* SessionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsView.swift; sourceTree = "<group>"; };
+		5F0DB4C4D892C1DDAA74C6D4 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		5F5276EFAE63BAF95A544047 /* StajankaUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StajankaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6139D933EBC09B9F234CA55A /* privacy-en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "privacy-en.json"; sourceTree = "<group>"; };
+		70036B2264A8AF2EA3366C9A /* AppStoreScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreScreenshots.swift; sourceTree = "<group>"; };
+		77A98F557ED0033FD4686936 /* CardCheckoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCheckoutTests.swift; sourceTree = "<group>"; };
+		7B307154967BCE310E4A98BC /* ScreenshotScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotScenario.swift; sourceTree = "<group>"; };
+		85ADE40253A3EB91EEE0614B /* ParkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingTests.swift; sourceTree = "<group>"; };
+		89448D55F73302B3B31633D9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		8C1AF3F4943BA6E2DCB5F261 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8E06DCEC12A3CE13B79972D5 /* VehicleViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViews.swift; sourceTree = "<group>"; };
+		8FE791D83341F5C10236A359 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9400A5CECFC359F5288331A2 /* Stajanka.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Stajanka.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CC5DD06C641E2575CE5DB2F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A359B607E7DEAB243BAC2CF7 /* be */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = be; path = be.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A786ECD82024ABDEB3266820 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A99A67D1FB9139F20159E356 /* SelectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViews.swift; sourceTree = "<group>"; };
+		AD04AC60DF551E63E255CAAB /* privacy-be.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "privacy-be.json"; sourceTree = "<group>"; };
+		B5CA034E7B4C2B05E3C5753C /* terms-en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "terms-en.json"; sourceTree = "<group>"; };
+		B976D157A37F34B6D15304BB /* privacy-ru.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "privacy-ru.json"; sourceTree = "<group>"; };
+		C30F7B4E4FEDE948943AC0AC /* StajankaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StajankaUITests.swift; sourceTree = "<group>"; };
+		C4ADB6EDC4CD71380D6B8FAA /* ParkoukaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkoukaAPI.swift; sourceTree = "<group>"; };
+		CA3A032CFF4322D5308011B8 /* terms-ru.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "terms-ru.json"; sourceTree = "<group>"; };
+		CE2090E443AEC855BCFA8163 /* ParkingMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMapView.swift; sourceTree = "<group>"; };
+		D701BCB66C350F42922F2DD2 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		DC03612BFF287F9D6C22D264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DE5D9D5EC322A9D0B541F7FD /* LocalizationVehicleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationVehicleTests.swift; sourceTree = "<group>"; };
+		EDFA66F64AF32F5F6EBC86B3 /* StajankaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StajankaApp.swift; sourceTree = "<group>"; };
+		F101E861521B64C7758F4060 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3EDCE277770A31B40A1B5DF8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DC03612BFF287F9D6C22D264 /* Assets.xcassets */,
+				AD04AC60DF551E63E255CAAB /* privacy-be.json */,
+				6139D933EBC09B9F234CA55A /* privacy-en.json */,
+				B976D157A37F34B6D15304BB /* privacy-ru.json */,
+				9CC5DD06C641E2575CE5DB2F /* PrivacyInfo.xcprivacy */,
+				37E57EA5CF0732A55056E5DF /* support-be.json */,
+				4DA895E9E509411477CE8587 /* support-en.json */,
+				1E9F27047391870058D4A054 /* support-ru.json */,
+				05865B9AA208F49F587C963A /* terms-be.json */,
+				B5CA034E7B4C2B05E3C5753C /* terms-en.json */,
+				CA3A032CFF4322D5308011B8 /* terms-ru.json */,
+				4AD77F8D094AB38EF740C121 /* zones.json */,
+				3C62640B737A06CC597BF86C /* InfoPlist.strings */,
+				FFEF06DC231776A869B6E553 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3FCCF69C7878CF01C0688F6B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0845D194831876AD9B63F01A /* AboutView.swift */,
+				1830895BEB4162727D5B9D7E /* CardCheckoutView.swift */,
+				F101E861521B64C7758F4060 /* Design.swift */,
+				89448D55F73302B3B31633D9 /* OnboardingView.swift */,
+				CE2090E443AEC855BCFA8163 /* ParkingMapView.swift */,
+				D701BCB66C350F42922F2DD2 /* PaymentView.swift */,
+				A99A67D1FB9139F20159E356 /* SelectionViews.swift */,
+				584F641894F4DD9B893552BB /* SessionsView.swift */,
+				8E06DCEC12A3CE13B79972D5 /* VehicleViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		43CF0A2631A87ACF5C2696F7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				206B81604816C7B23B6C6FA5 /* CardCheckoutNavigation.swift */,
+				5F0DB4C4D892C1DDAA74C6D4 /* Localization.swift */,
+				A786ECD82024ABDEB3266820 /* Models.swift */,
+				7B307154967BCE310E4A98BC /* ScreenshotScenario.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4E574C0281223B531D3D62E8 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				77A98F557ED0033FD4686936 /* CardCheckoutTests.swift */,
+				DE5D9D5EC322A9D0B541F7FD /* LocalizationVehicleTests.swift */,
+				85ADE40253A3EB91EEE0614B /* ParkingTests.swift */,
+				4C358BCA422F55D7B6A750C3 /* ReleaseReadinessTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		58057756ED01CA40B7076903 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				36E199EA5A31FC74889F27C8 /* AppModel.swift */,
+				C4ADB6EDC4CD71380D6B8FAA /* ParkoukaAPI.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		87A240C7C796D521A75B3AD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9400A5CECFC359F5288331A2 /* Stajanka.app */,
+				2C7E7B1BB0A1C2F47849D5FE /* StajankaTests.xctest */,
+				5F5276EFAE63BAF95A544047 /* StajankaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C284E4282BF2F3D1FB04E1B2 /* Stajanka */ = {
+			isa = PBXGroup;
+			children = (
+				EDFA66F64AF32F5F6EBC86B3 /* StajankaApp.swift */,
+				43CF0A2631A87ACF5C2696F7 /* Core */,
+				3EDCE277770A31B40A1B5DF8 /* Resources */,
+				58057756ED01CA40B7076903 /* Services */,
+				3FCCF69C7878CF01C0688F6B /* Views */,
+			);
+			path = Stajanka;
+			sourceTree = "<group>";
+		};
+		C7F4F01AABDE023A93014F2B = {
+			isa = PBXGroup;
+			children = (
+				C284E4282BF2F3D1FB04E1B2 /* Stajanka */,
+				4E574C0281223B531D3D62E8 /* Tests */,
+				E38B291F5516BB7BDCD5F9EE /* UITests */,
+				87A240C7C796D521A75B3AD3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E38B291F5516BB7BDCD5F9EE /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				70036B2264A8AF2EA3366C9A /* AppStoreScreenshots.swift */,
+				C30F7B4E4FEDE948943AC0AC /* StajankaUITests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B6F1DC8FDA32C2C1D63A96B /* StajankaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7C9061204DA8491B95F70FB /* Build configuration list for PBXNativeTarget "StajankaTests" */;
+			buildPhases = (
+				5BBD017D3249CD808CAC3F52 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				115752476FFE3B755D2713D9 /* PBXTargetDependency */,
+			);
+			name = StajankaTests;
+			packageProductDependencies = (
+			);
+			productName = StajankaTests;
+			productReference = 2C7E7B1BB0A1C2F47849D5FE /* StajankaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5F5F4EC9FA0116F2C453F82B /* StajankaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFB0D00193687E0281E833AA /* Build configuration list for PBXNativeTarget "StajankaUITests" */;
+			buildPhases = (
+				8B48CA17D06DFF7B8DE57CB1 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10738CD928FF41A85BCA95EF /* PBXTargetDependency */,
+			);
+			name = StajankaUITests;
+			packageProductDependencies = (
+			);
+			productName = StajankaUITests;
+			productReference = 5F5276EFAE63BAF95A544047 /* StajankaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		C9E0F965AAC0E5E42BB06F13 /* Stajanka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6D3C6A1032E9E7FB931AC41 /* Build configuration list for PBXNativeTarget "Stajanka" */;
+			buildPhases = (
+				112539432F2D096F4D159405 /* Sources */,
+				2F89993913941E54FB7160E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Stajanka;
+			packageProductDependencies = (
+			);
+			productName = Stajanka;
+			productReference = 9400A5CECFC359F5288331A2 /* Stajanka.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E7E9E20932201E6F64A332B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0B6F1DC8FDA32C2C1D63A96B = {
+						DevelopmentTeam = "";
+					};
+					5F5F4EC9FA0116F2C453F82B = {
+						DevelopmentTeam = "";
+						TestTargetID = C9E0F965AAC0E5E42BB06F13;
+					};
+					C9E0F965AAC0E5E42BB06F13 = {
+						DevelopmentTeam = "";
+					};
+				};
+			};
+			buildConfigurationList = 5B6BEB1226D3D9C31617D38C /* Build configuration list for PBXProject "Stajanka" */;
+			developmentRegion = be;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				be,
+				en,
+				ru,
+			);
+			mainGroup = C7F4F01AABDE023A93014F2B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 87A240C7C796D521A75B3AD3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C9E0F965AAC0E5E42BB06F13 /* Stajanka */,
+				0B6F1DC8FDA32C2C1D63A96B /* StajankaTests */,
+				5F5F4EC9FA0116F2C453F82B /* StajankaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F89993913941E54FB7160E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8BC787E6F729E12C788D484 /* Assets.xcassets in Resources */,
+				2C2E194EDE66A967B6EE2D5A /* InfoPlist.strings in Resources */,
+				2E675766CF57594E3B373589 /* Localizable.strings in Resources */,
+				A00795DC1C06BC3A189FDF48 /* PrivacyInfo.xcprivacy in Resources */,
+				24467CCC52859AF6E39E0861 /* privacy-be.json in Resources */,
+				6CB3CAB40D652D4680B482B9 /* privacy-en.json in Resources */,
+				96E574DC32B2307F1C2097F1 /* privacy-ru.json in Resources */,
+				C4D57B9BE772C3D3599DE52F /* support-be.json in Resources */,
+				4E8511A0F6A191CDDA033186 /* support-en.json in Resources */,
+				6F41F769A2D672D70ACB4BF7 /* support-ru.json in Resources */,
+				2D71CB9143D338750BFD30B5 /* terms-be.json in Resources */,
+				C1584D87ADF84C6138FD880C /* terms-en.json in Resources */,
+				43E21934FD7906218A44FC4D /* terms-ru.json in Resources */,
+				9306B4933B838E555E346A85 /* zones.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		112539432F2D096F4D159405 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91971F3EF370C5D0494C37EC /* AboutView.swift in Sources */,
+				9E2C5292EB7BA0D80F4FEAF7 /* AppModel.swift in Sources */,
+				C16FC4BB47D30D93B0C517CC /* CardCheckoutNavigation.swift in Sources */,
+				743F04E38868ED04A041C914 /* CardCheckoutView.swift in Sources */,
+				5637C2147A78E90E2143334E /* Design.swift in Sources */,
+				688CD518F36CF20F9AA721C7 /* Localization.swift in Sources */,
+				D2CAB0D884C6B1B19937C608 /* Models.swift in Sources */,
+				904AE5F3235A147E4BD1829E /* OnboardingView.swift in Sources */,
+				D425777C710DC469F78FC933 /* ParkingMapView.swift in Sources */,
+				58526D911F882671041B7D9D /* ParkoukaAPI.swift in Sources */,
+				7511969CB4389DF226675661 /* PaymentView.swift in Sources */,
+				3290536B83AA4386657CF3FB /* ScreenshotScenario.swift in Sources */,
+				783968F63EC461C07CCF92AE /* SelectionViews.swift in Sources */,
+				7DA0707C32639ED61687E1E8 /* SessionsView.swift in Sources */,
+				FF259CBC3DF21B17093D7E93 /* StajankaApp.swift in Sources */,
+				DDAA0D1178A490A4E4A08ADD /* VehicleViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BBD017D3249CD808CAC3F52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BAA5B633765A82AE32DEDF7 /* CardCheckoutTests.swift in Sources */,
+				8C2E96D18E39AB091E785234 /* LocalizationVehicleTests.swift in Sources */,
+				396941BDCF76A1B544F08184 /* ParkingTests.swift in Sources */,
+				94142952348A17004321FDB3 /* ReleaseReadinessTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B48CA17D06DFF7B8DE57CB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9646EC7A58FF0B60954409AF /* AppStoreScreenshots.swift in Sources */,
+				E7FF3B90030E40516CB6E0F3 /* StajankaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10738CD928FF41A85BCA95EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9E0F965AAC0E5E42BB06F13 /* Stajanka */;
+			targetProxy = C76F24E870C4A7E94D3509B4 /* PBXContainerItemProxy */;
+		};
+		115752476FFE3B755D2713D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9E0F965AAC0E5E42BB06F13 /* Stajanka */;
+			targetProxy = 48C80FE4F1C81DEF179809D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3C62640B737A06CC597BF86C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A359B607E7DEAB243BAC2CF7 /* be */,
+				8FE791D83341F5C10236A359 /* en */,
+				4C4CF40A71ECE20ECF58A110 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FFEF06DC231776A869B6E553 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0612796E267C2369C8EB3A41 /* be */,
+				273EB3EFF106B1FD3F2F8EE9 /* en */,
+				8C1AF3F4943BA6E2DCB5F261 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		12D49237ABC4B076EB871A5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = by.stajanka.StajankaUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Stajanka;
+			};
+			name = Release;
+		};
+		1B2FCBB49506F50AA89D9740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = by.stajanka.app;
+				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		24DCAB5282C64A42FB7BCC55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Стаянка";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Покажем ваше положение и ближайшие парковки на карте.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		410C4CAA9B1834ED70A2AC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = by.stajanka.app;
+				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6A78272E9C09DEB0C83E8B19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = by.stajanka.StajankaTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stajanka.app/Stajanka";
+			};
+			name = Debug;
+		};
+		87AA9735CD7F0C99AC75A197 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Стаянка";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Покажем ваше положение и ближайшие парковки на карте.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9992217F008FF9BE719FC8A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = by.stajanka.StajankaTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stajanka.app/Stajanka";
+			};
+			name = Release;
+		};
+		E1DCDF8F53E8C69D1C967EE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = by.stajanka.StajankaUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Stajanka;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B6BEB1226D3D9C31617D38C /* Build configuration list for PBXProject "Stajanka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87AA9735CD7F0C99AC75A197 /* Debug */,
+				24DCAB5282C64A42FB7BCC55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C6D3C6A1032E9E7FB931AC41 /* Build configuration list for PBXNativeTarget "Stajanka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				410C4CAA9B1834ED70A2AC5C /* Debug */,
+				1B2FCBB49506F50AA89D9740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EFB0D00193687E0281E833AA /* Build configuration list for PBXNativeTarget "StajankaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1DCDF8F53E8C69D1C967EE2 /* Debug */,
+				12D49237ABC4B076EB871A5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F7C9061204DA8491B95F70FB /* Build configuration list for PBXNativeTarget "StajankaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A78272E9C09DEB0C83E8B19 /* Debug */,
+				9992217F008FF9BE719FC8A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5E7E9E20932201E6F64A332B /* Project object */;
+}
