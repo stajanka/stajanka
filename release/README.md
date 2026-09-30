@@ -6,7 +6,7 @@ This directory contains public-safe policies, branding, App Store metadata and s
 
 ## Review status
 
-Build 5 removes Parkouka sign-in and stores history in a local SQLite database. It is being prepared for resubmission after the September 24 information request. App Privacy remains published. See [STATUS.md](STATUS.md) for current verification and release details. Release remains manual after approval.
+Build 5 removes Parkouka sign-in and stores history in a local SQLite database. It was resubmitted on 2026-09-30 and is Waiting for Review. App Privacy remains published. See [STATUS.md](STATUS.md) for current verification and release details. Release remains manual after approval.
 
 ## Checks for future releases
 

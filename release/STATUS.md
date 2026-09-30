@@ -16,7 +16,7 @@ App Store Connect record: `6814781315`.
 
 ## Review state
 
-The latest Apple message remains the September 24 information request about account creation; the September 25 clarification is visible and there is no newer reviewer message as of this update. The old submission remains unresolved while build 5 and replacement assets are being prepared for resubmission. No additional reviewer message has been sent.
+The latest reviewer message remains the September 24 information request about account creation; the September 25 clarification is visible and there was no newer rejection message when this update began. Build 5 and all replacement screenshots are now attached and verified. The rejected item was marked resolved and the existing submission was sent again on September 30. An independent API read confirmed **WAITING_FOR_REVIEW** for build 5. Review notes explain the removed account feature; no additional conversation message was sent. Public release remains manual after Apple approval.
 
 ---
 
