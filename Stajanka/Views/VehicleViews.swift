@@ -3,7 +3,6 @@ import SwiftUI
 struct GarageView: View {
   @EnvironmentObject private var model: AppModel
   @State private var adding = false
-  @State private var account = false
   @State private var help = false
   @State private var choosingLanguage = false
   @State private var deleting: Vehicle?
@@ -16,11 +15,13 @@ struct GarageView: View {
           Spacer()
           RoundButton(icon: "globe", label: L("Выбрать язык")) { choosingLanguage = true }
             .accessibilityIdentifier("language-settings")
-          RoundButton(icon: "person.crop.circle", label: L("Личный кабинет")) { account = true }
         }
         Text(L("Мой гараж")).font(.system(size: 36, weight: .bold, design: .rounded)).tracking(-1)
         Text(L("Сохраните номер. В следующий раз\nон уже будет ждать вас.")).font(.system(size: 16))
           .foregroundStyle(Palette.muted).lineSpacing(4)
+        if let message = model.storageMessage {
+          InfoNote(icon: "exclamationmark.triangle", text: message)
+        }
         ForEach(model.vehicles) { car in
           VStack(alignment: .leading, spacing: 16) {
             Button {
@@ -68,27 +69,11 @@ struct GarageView: View {
         }
         PrimaryButton(title: L("Добавить автомобиль"), icon: "plus") { adding = true }
           .accessibilityIdentifier("add-vehicle")
-        Button {
-          account = true
-        } label: {
-          HStack(spacing: 14) {
-            Image(systemName: "person.crop.circle").font(.title2)
-            VStack(alignment: .leading, spacing: 4) {
-              Text(L("Кабинет Parkouka.by")).font(.headline)
-              Text(model.loggedIn ? L("Подключён · история оплат") : L("Подключить историю оплат"))
-                .font(
-                  .caption
-                ).foregroundStyle(Palette.muted)
-            }
-            Spacer()
-            Image(systemName: "chevron.right").font(.caption)
-          }.card()
-        }.buttonStyle(.plain)
         InfoNote(
           icon: "lock.shield",
           text:
             L(
-              "Номер хранится на устройстве. В кабинет он добавляется только по вашему выбору, без подтверждения права на информацию о штрафах."
+              "Гараж и история парковок хранятся на этом устройстве. Вход и регистрация не нужны."
             )
         )
         Button {
@@ -102,7 +87,7 @@ struct GarageView: View {
       }.padding(22)
     }.background(Palette.paper).foregroundStyle(Palette.ink).sheet(isPresented: $adding) {
       VehicleEditor()
-    }.sheet(isPresented: $account) { AccountView() }.sheet(isPresented: $help) { GuideView() }
+    }.sheet(isPresented: $help) { GuideView() }
       .sheet(isPresented: $choosingLanguage) { LanguagePickerView() }
       .sheet(isPresented: $about) { AboutView() }
       .confirmationDialog(
@@ -133,7 +118,6 @@ struct VehicleEditor: View {
   @State private var bus = false
   @State private var countryCode = "BY"
   @State private var choosingCountry = false
-  @State private var sync = false
   @State private var busy = false
   @State private var error: String?
   var body: some View {
@@ -176,7 +160,6 @@ struct VehicleEditor: View {
             }
         }
         Toggle(L("Автобус (категория M2 / M3)"), isOn: $bus).font(.subheadline)
-        if model.loggedIn { Toggle(L("Также добавить в кабинет"), isOn: $sync).font(.subheadline) }
         InfoNote(
           icon: "checkmark.shield",
           text:
@@ -200,101 +183,10 @@ struct VehicleEditor: View {
         let saved = Vehicle(
           plate: Vehicle.normalize(plate), nickname: Vehicle.cleanNickname(nickname),
           isBus: bus, countryCode: countryCode)
-        try await model.add(saved, sync: sync)
+        try await model.add(saved)
         onSaved?(saved)
         dismiss()
       } catch { self.error = error.localizedDescription }
-      busy = false
-    }
-  }
-}
-
-struct AccountView: View {
-  @EnvironmentObject private var model: AppModel
-  @Environment(\.dismiss) private var dismiss
-  @State private var email = ""
-  @State private var password = ""
-  @State private var busy = false
-  @State private var error: String?
-  var body: some View {
-    ScrollView {
-      VStack(alignment: .leading, spacing: 22) {
-        SheetHeader(title: L("Личный кабинет"), dismiss: { dismiss() })
-        Text(model.loggedIn ? L("На связи\nс Parkouka.by") : L("Ваша история.\nВ одном месте."))
-          .font(
-            .system(size: 32, weight: .bold, design: .rounded))
-        if !model.loggedIn {
-          TextField(L("Электронная почта"), text: $email).textContentType(.username).keyboardType(
-            .emailAddress
-          ).textInputAutocapitalization(.never).autocorrectionDisabled().padding(18).background(
-            .white, in: RoundedRectangle(cornerRadius: 18))
-          SecureField(L("Пароль"), text: $password).textContentType(.password).padding(18)
-            .background(
-              .white, in: RoundedRectangle(cornerRadius: 18))
-          PrimaryButton(title: L("Подключить кабинет"), icon: "arrow.right", busy: busy) { login() }
-            .disabled(email.isEmpty || password.isEmpty)
-          InfoNote(
-            icon: "lock",
-            text:
-              L(
-                "Вход напрямую в Parkouka.by. Пароль не сохраняется; сессия хранится в защищённом хранилище iPhone."
-              )
-          )
-        } else {
-          Label(L("Кабинет подключён"), systemImage: "checkmark.circle.fill").foregroundStyle(
-            Palette.green)
-          PrimaryButton(title: L("Обновить историю"), icon: "arrow.clockwise", busy: busy) {
-            loadHistory()
-          }
-          if model.history.isEmpty {
-            InfoNote(
-              text:
-                L(
-                  "В кабинете пока нет загруженных оплат. Автомобиль должен быть добавлен в этот кабинет, чтобы его оплаты могли появиться в истории."
-                )
-            )
-          }
-          ForEach(model.history) { row in
-            VStack(alignment: .leading, spacing: 8) {
-              Text(row.regplate_full).font(.headline)
-              Text(row.name).font(.subheadline)
-              Text("\(row.starts_at) — \(row.valid_till)").font(.caption)
-              Text("\(row.amount) BYN").font(.headline)
-            }.frame(maxWidth: .infinity, alignment: .leading).card()
-          }
-          Button(L("Отключить кабинет"), role: .destructive) {
-            Task {
-              await model.api.logout()
-              model.loggedIn = false
-              model.history = []
-            }
-          }.frame(maxWidth: .infinity)
-        }
-        if let error { Text(error).font(.subheadline).foregroundStyle(Palette.orange) }
-      }.padding(24)
-    }.background(Palette.paper).foregroundStyle(Palette.ink)
-  }
-  private func login() {
-    busy = true
-    error = nil
-    Task {
-      do {
-        try await model.api.login(
-          email: email.trimmingCharacters(in: .whitespaces), password: password)
-        password = ""
-        model.loggedIn = true
-        model.history = try await model.api.history()
-      } catch { self.error = error.localizedDescription }
-      busy = false
-    }
-  }
-  private func loadHistory() {
-    busy = true
-    error = nil
-    Task {
-      do { model.history = try await model.api.history() } catch {
-        self.error = error.localizedDescription
-      }
       busy = false
     }
   }

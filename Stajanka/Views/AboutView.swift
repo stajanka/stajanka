@@ -59,16 +59,11 @@ struct AboutView: View {
           Link(destination: URL(string: "mailto:sosambus@icloud.com?subject=Stajanka")!) {
             Label("sosambus@icloud.com", systemImage: "envelope").frame(minHeight: 44)
           }
-          Link(
-            L("Управление аккаунтом Parkouka.by"),
-            destination: URL(string: "https://parkouka.by/users/edit")!
-          )
-          .font(.subheadline).frame(minHeight: 44)
           Divider()
           Text(L("Ваши данные")).font(.headline)
           InfoNote(
             text: L(
-              "Удаление из гаража сохраняет историю парковок. Полная очистка ниже удалит автомобили, локальную историю, напоминания и сеанс входа с этого устройства. Платежи и аккаунт Parkouka.by останутся у оператора."
+              "Удаление автомобиля из гаража сохраняет историю парковок. Полная очистка удалит автомобили, историю и напоминания с этого устройства. Она не отменяет парковку и не удаляет сведения о платежах у оператора или банка."
             ))
           Button(role: .destructive) {
             erase = true

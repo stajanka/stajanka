@@ -187,9 +187,6 @@ struct PaymentView: View {
           ?? L(
             "Мы проверяем оплаченное время на стороне сервиса. Это может занять некоторое время."))
       if let error { InfoNote(icon: "exclamationmark.circle", text: error) }
-      if let message = model.accountCheckMessage {
-        InfoNote(icon: "person.crop.circle", text: message)
-      }
       if paymentConfirmed {
         if let end = model.sessions.first(where: { $0.quote == quote })?.endDate {
           Text(L("Оплачено до %@", String(describing: ParkingDate.time(end)))).font(.title3.bold())
@@ -278,7 +275,10 @@ struct PaymentView: View {
     } else {
       url = quote.cardURL
     }
-    model.begin(quote)
+    guard model.begin(quote) else {
+      error = model.storageMessage
+      return
+    }
     launched = true
     if method == 0 {
       openURL(url) { accepted in

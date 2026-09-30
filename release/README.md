@@ -1,12 +1,12 @@
 # Release materials
 
-Version: 1.0.0, build 4. Bundle: `by.stajanka.app`. Supported target: iPhone, iOS 17+.
+Version: 1.0.0, build 5. Bundle: `by.stajanka.app`. Supported target: iPhone, iOS 17+.
 
 This directory contains public-safe policies, branding, App Store metadata and simulator screenshots. No personal account, payment token or real user plate belongs here.
 
 ## Review status
 
-Version 1.0.0 (4) was submitted on 2026-09-22 and is Waiting for Review. App Privacy is published. See [STATUS.md](STATUS.md) for verification and release details. Release remains manual after approval.
+Build 5 removes Parkouka sign-in and stores history in a local SQLite database. It is being prepared for resubmission after the September 24 information request. App Privacy remains published. See [STATUS.md](STATUS.md) for current verification and release details. Release remains manual after approval.
 
 ## Checks for future releases
 

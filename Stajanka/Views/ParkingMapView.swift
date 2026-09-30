@@ -284,7 +284,7 @@ struct ParkingMapView: View {
   }
   private func select(_ zone: ParkingZone) {
     #if DEBUG
-      if model.isScreenshotSession {
+      if model.isScreenshotSession || AppPersistence.isUITest {
         var transaction = Transaction(animation: nil)
         transaction.disablesAnimations = true
         withTransaction(transaction) {

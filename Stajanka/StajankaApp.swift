@@ -1,7 +1,13 @@
 import SwiftUI
+import UIKit
 
 @main
 struct StajankaApp: App {
+  init() {
+    #if DEBUG
+      if AppPersistence.isUITest { UIView.setAnimationsEnabled(false) }
+    #endif
+  }
   @StateObject private var model = AppModel()
   @StateObject private var languages = LanguageStore()
   var body: some Scene {

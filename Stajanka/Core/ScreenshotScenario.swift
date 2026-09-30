@@ -27,8 +27,6 @@
         Vehicle(plate: "WA12345", nickname: names[1], countryCode: "PL"),
       ]
       model.selectedVehicleID = model.vehicles[0].id
-      model.loggedIn = false
-      model.history = []
       let now = Date()
       let formatter = ISO8601DateFormatter()
       let end = now.addingTimeInterval(3600)
@@ -37,10 +35,19 @@
         start: formatter.string(from: now.addingTimeInterval(-1800)),
         validTill: formatter.string(from: end), hours: 2, isExtension: false, tariff: 1,
         amount: "4.0", eripURL: nil, createdAt: now, countryCode: "BY")
+      let pastQuote = ParkingQuote(
+        plate: "1234AA7", zoneID: "720", zoneTitle: L("Парковочная зона %@", "720"),
+        start: formatter.string(from: now.addingTimeInterval(-10800)),
+        validTill: formatter.string(from: now.addingTimeInterval(-7200)),
+        hours: 1, isExtension: false, tariff: 1, amount: "2.0", eripURL: nil,
+        createdAt: now.addingTimeInterval(-10800), countryCode: "BY")
       model.sessions = [
         ParkingSession(
           quote: quote, state: .confirmed, lastChecked: now, confirmationSource: .currentCoverage,
-          confirmedValidTill: quote.validTill)
+          confirmedValidTill: quote.validTill),
+        ParkingSession(
+          quote: pastQuote, state: .confirmed, lastChecked: pastQuote.createdAt,
+          confirmationSource: .currentCoverage, confirmedValidTill: pastQuote.validTill)
       ]
     }
     static func quote(vehicle: Vehicle, zone: ParkingZone, hours: Int) -> ParkingQuote {

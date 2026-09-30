@@ -8,10 +8,13 @@ Independent native iOS parking companion for Minsk, built with SwiftUI and MapKi
 - Local garage with countries and flags, visible removal controls and checkout vehicle switching.
 - Server-calculated parking quotes; ERIP or secure bePaid checkout for real-world parking.
 - Paid-time verification, current parking restoration and local expiry reminders.
-- Optional connection to an existing Parkouka.by account; device-only Keychain session storage.
+- Local SQLite garage and parking history, with migration of records saved by earlier versions.
+- No account creation, sign-in or connection to a Parkouka.by account.
 - In-app privacy information, terms, support and local data deletion.
 
 Stajanka is an independent client and is not represented as an official product of Parkouka.by, a parking operator, bePaid or Apple. The app is free; parking fees are paid to the relevant operator. It does not query fines or ask for vehicle ownership documents.
+
+History contains parking recorded or confirmed on this device and is not synchronized with a server account or other devices. Public checks can restore a plate's current paid coverage, including parking purchased elsewhere, but do not import its past transactions or unknown payment amounts. Payment quotes and verification still send the selected plate and parking parameters to Parkouka.by over HTTPS. Payment-provider authentication and web analytics remain part of external checkout.
 
 ## Build and test
 

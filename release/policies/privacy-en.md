@@ -1,22 +1,22 @@
 # Privacy Policy
 
-2026-09-22
+2026-09-30
 
 ## Who is responsible
 
-Stajanka is an independent parking companion developed by Daniil Bortnik. Contact: sosambus@icloud.com. Stajanka does not operate parking areas, issue fines or act as a bank. It does not create a separate Stajanka account.
+Stajanka is an independent parking companion developed by Daniil Bortnik. Contact: sosambus@icloud.com. Stajanka does not operate parking areas, issue fines or act as a bank. There is no account creation or sign-in in the app.
 
 ## Data on your device
 
-The app stores the plates, countries and optional nicknames you enter, your selected vehicle, language, and locally recorded parking attempts and paid periods. There is no developer-operated cloud database or automatic account sharing. iOS backups may contain local app data according to your device settings.
+The app stores the plates, countries and optional nicknames you enter, your selected vehicle, language, and locally recorded parking attempts and paid periods. Vehicles and parking records are kept in a SQLite database on your device. Existing garage and parking records from earlier app versions are migrated to this database without deleting them. History contains parking recorded or confirmed on this device; it is not a complete statement of an external account. There is no developer-operated cloud database or cloud synchronization. iOS backups may contain local app data according to your device settings.
 
 ## Parking service requests
 
-To calculate a price, open checkout and verify parking, the app sends the selected plate, payment-zone identifier, duration, start time and vehicle tariff to Parkouka.by over HTTPS. Adding or selecting a vehicle can also check its current paid time across the supported zones. The country flag and nickname are local display data; they are not sent as parking-payment parameters. Parkouka and the parking operator retain their own transaction and account records under their policies.
+To calculate a price, open checkout and verify parking, the app sends the selected plate, payment-zone identifier, duration, start time and vehicle tariff to Parkouka.by over HTTPS without signing into a Parkouka account. Adding or selecting a vehicle can also check its current paid time across the supported zones. This can restore current paid coverage for the plate, including parking paid elsewhere, but does not retrieve old transactions or their amounts. The country flag and nickname are local display data; they are not sent as parking-payment parameters. Parkouka and the parking operator retain their own transaction records under their policies.
 
-## Optional account connection
+## No account connection
 
-If you connect an existing Parkouka.by account, the email and password you enter are sent directly to that service for authentication. The password is not saved to persistent app storage. Session cookies are saved in the device-only iOS Keychain. Adding a vehicle to that account is optional and does not request registration documents or access to fines.
+Stajanka does not request a Parkouka email or password, register vehicles in an external account, fetch account history or retain a login session. On upgrading from an earlier version, the app removes its saved Parkouka login credentials and session cookies. This does not delete an account or records held by the external service. Payment providers and banks may still require authentication within their own checkout interface.
 
 ## Location and notifications
 
@@ -32,7 +32,7 @@ The native app contains no advertising SDK, advertising identifier access or dev
 
 ## Deletion and your choices
 
-Deleting a vehicle from the garage removes that garage entry; locally recorded parking sessions remain. Garage → About and data → Delete local data removes saved vehicles, local parking history, reminders and the saved login session from this device. It does not cancel a payment or delete records held by Parkouka, bePaid or a bank. Sign out or use this clear-data action before uninstalling if you want to remove the Keychain session. Manage an external Parkouka account directly with its operator. Contact support for questions about access, correction or deletion of information held by the developer.
+Deleting a vehicle from the garage removes that garage entry; locally recorded parking sessions remain. Garage → About and data → Delete local data removes saved vehicles, local parking history, reminders and payment web data from this device. It does not cancel a payment or delete records held by Parkouka, bePaid or a bank. Contact support for questions about access, correction or deletion of information held by the developer.
 
 ## Scope and changes
 

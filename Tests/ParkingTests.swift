@@ -45,31 +45,6 @@ final class ParkingTests: XCTestCase {
         checkedAt: ParkingDate.parse("2026-09-23T10:01:00+03:00")!))
   }
 
-  func historyRow(_ changes: [String: Any] = [:]) throws -> HistoryRow {
-    var object: [String: Any] = [
-      "id": 1, "regplate_full": "1234 AA-7", "name": "Тестовая зона",
-      "starts_at": "2026-09-22T10:00:00+03:00",
-      "valid_till": "2026-09-22T11:00:00+03:00",
-      "amount": "2.00", "parent_zone_id": 710,
-    ]
-    object.merge(changes) { _, new in new }
-    return try JSONDecoder().decode(
-      HistoryRow.self, from: JSONSerialization.data(withJSONObject: object))
-  }
-
-  func testAccountHistoryNeedsMatchingPlateZonePeriodAndAmount() throws {
-    XCTAssertTrue(try historyRow().matches(quote()))
-    XCTAssertTrue(try historyRow(["amount": 2]).matches(quote()))
-    XCTAssertFalse(try historyRow(["regplate_full": "9999AA7"]).matches(quote()))
-    XCTAssertFalse(try historyRow(["parent_zone_id": 720]).matches(quote()))
-    XCTAssertFalse(try historyRow(["amount": "4.0"]).matches(quote()))
-    XCTAssertFalse(try historyRow(["starts_at": "2026-09-21T10:00:00+03:00"]).matches(quote()))
-    XCTAssertFalse(try historyRow(["valid_till": "2026-09-22T12:00:00+03:00"]).matches(quote()))
-    XCTAssertFalse(try historyRow(["starts_at": "unrecognized date"]).matches(quote()))
-    XCTAssertFalse(
-      try historyRow(["parent_zone_id": NSNull(), "name": "Все зоны"]).matches(quote()))
-  }
-
   func testOldStoredSessionRemainsReadable() throws {
     let session = ParkingSession(quote: quote(), state: .awaiting)
     let decoded = try JSONDecoder().decode(ParkingSession.self, from: JSONEncoder().encode(session))

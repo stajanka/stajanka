@@ -1,7 +1,26 @@
-# Release status — 2026-09-22
+# Release status — 2026-09-30
 
-App: Stajanka / Стаянка, `by.stajanka.app`, version 1.0.0 (4).
+App: Stajanka / Стаянка, `by.stajanka.app`, version 1.0.0 (5).
 App Store Connect record: `6814781315`.
+
+## No-account update
+
+- Removed Parkouka sign-in UI, password input, account-management link, remote vehicle registration and account-history endpoints.
+- Added a device-local SQLite database for the garage, selected vehicle and parking sessions. Migration preserves legacy IDs, countries, amounts, confirmed expiry and confirmation sources; legacy preferences are removed only after the transaction commits and can be read back.
+- Saved pending records are committed before checkout can open. Database failures stop checkout and leave the previous durable state intact.
+- Historical confirmed records remain after parking expiry and vehicle removal. Public current-coverage restoration is retained; unknown amounts remain unknown. It does not fetch historical account transactions.
+- Retired account-session cookies are removed from the app's Keychain. Payment/CSRF cookies remain guest-only in memory; late requests cannot recreate records after local erase.
+- All three UI languages, bundled/public policies, descriptions and review instructions are updated. App Review sign-in-required is off and demo credentials are cleared; these values were read back from Apple.
+- 34 unit/integration checks and 3 UI checks passed (37 unique checks), including migration/rollback, legacy Keychain cleanup, current guest cookies, actual paid expiry, erase during verification, no login UI and garage persistence after relaunch. The separate 18-screenshot capture also passed.
+- Build 5's signed archive was uploaded, processed and attached. Updated screenshots use only fictional plates and passed OCR/dimension checks.
+
+## Review state
+
+The latest Apple message remains the September 24 information request about account creation; the September 25 clarification is visible and there is no newer reviewer message as of this update. The old submission remains unresolved while build 5 and replacement assets are being prepared for resubmission. No additional reviewer message has been sent.
+
+---
+
+## Earlier submission record (September 22)
 
 ## Completed
 

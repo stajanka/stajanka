@@ -1,6 +1,6 @@
 # Support
 
-2026-09-22
+2026-09-30
 
 ## Contact
 
@@ -12,7 +12,7 @@ Check whether your bank completed or declined the payment. Return to the Parking
 
 ## Vehicles and data
 
-Use the Delete button on a garage card to remove that vehicle. Its parking records remain. To remove all locally saved vehicles, parking records and the login session, open Garage → About and data → Delete local data. This does not delete the operator’s records or cancel paid parking.
+Use the Delete button on a garage card to remove that vehicle. Its parking records remain. To remove all locally saved vehicles, parking history, reminders and payment web data, open Garage → About and data → Delete local data. This does not delete the operator’s records or cancel paid parking. History is recorded on this device and is not synchronized with other devices or an external account. Checking a saved plate may restore its current paid time, but cannot import a complete transaction history or unknown payment amounts.
 
 ## Languages and accessibility
 
@@ -20,4 +20,4 @@ Belarusian is the default interface language. Use the globe button in the garage
 
 ## Service scope
 
-Stajanka currently shows parking zones in Minsk. You can browse and calculate parking without creating an account. An existing Parkouka account is optional. Street names and external bank pages may use the language supplied by their provider.
+Stajanka currently shows parking zones in Minsk. All app features are available without creating or signing into an account; there is no Parkouka account screen. A bank or payment provider may require its own checkout authentication. Street names and external bank pages may use the language supplied by their provider.

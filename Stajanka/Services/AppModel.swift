@@ -19,40 +19,58 @@ enum AppPersistence {
     }
     return .standard
   }()
+  static let databaseURL: URL = {
+    let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+    let directory = base.appendingPathComponent(
+      isUITest ? "StajankaUITests" : "Stajanka", isDirectory: true)
+    if isUITest && ProcessInfo.processInfo.arguments.contains("--reset-test-state") {
+      try? FileManager.default.removeItem(at: directory)
+    }
+    return directory.appendingPathComponent("parking.sqlite")
+  }()
 }
 
 @MainActor
 final class AppModel: ObservableObject {
-  private let defaults: UserDefaults
+  private var store: LocalParkingStore?
+  private var persistenceReady = false
+  private var durableSnapshot = ParkingSnapshot()
   private var dataRevision = UUID()
   @Published var zones: [ParkingZone] = []
-  @Published var vehicles: [Vehicle] = [] { didSet { persist(vehicles, key: "vehicles") } }
-  @Published var selectedVehicleID: UUID? {
-    didSet { defaults.set(selectedVehicleID?.uuidString, forKey: "selectedVehicle") }
-  }
-  @Published var sessions: [ParkingSession] = [] { didSet { persist(sessions, key: "sessions") } }
+  @Published var vehicles: [Vehicle] = [] { didSet { persistMutation() } }
+  @Published var selectedVehicleID: UUID? { didSet { persistMutation() } }
+  @Published var sessions: [ParkingSession] = [] { didSet { persistMutation() } }
+  @Published var storageMessage: String?
   @Published var zoneMessage: String?
   @Published var refreshing = false
-  @Published var loggedIn = Keychain.read("cookies") != nil
-  @Published var history: [HistoryRow] = []
   @Published var checking = false
   @Published var checkMessage: String?
-  @Published var accountCheckMessage: String?
   @Published var selectedZone: ParkingZone?
   private var didLoad = false
-  private var restoringVehicles: Set<UUID> = []
-  let api = ParkoukaAPI.shared
+  private var restoringVehicles: [UUID: UUID] = [:]
+  let api: ParkoukaAPI
   var vehicle: Vehicle? { vehicles.first { $0.id == selectedVehicleID } ?? vehicles.first }
   var pending: [ParkingSession] { sessions.filter { $0.state == .awaiting } }
   var active: [ParkingSession] {
     sessions.filter { $0.state == .confirmed && ($0.endDate ?? .distantPast) > Date() }
   }
-  init(defaults: UserDefaults = AppPersistence.defaults) {
-    self.defaults = defaults
-    let d = defaults
-    vehicles = Self.restore([Vehicle].self, key: "vehicles", defaults: d) ?? []
-    sessions = Self.restore([ParkingSession].self, key: "sessions", defaults: d) ?? []
-    selectedVehicleID = d.string(forKey: "selectedVehicle").flatMap(UUID.init(uuidString:))
+  init(
+    defaults: UserDefaults = AppPersistence.defaults, storageURL: URL? = nil,
+    api: ParkoukaAPI = .shared
+  ) {
+    self.api = api
+    do {
+      let store = try LocalParkingStore(
+        url: storageURL ?? AppPersistence.databaseURL, legacyDefaults: defaults)
+      let snapshot = try store.load()
+      self.store = store
+      apply(snapshot)
+      durableSnapshot = snapshot
+    } catch {
+      storageMessage = L(
+        "Не удалось открыть локальную историю. Исходные данные сохранены для восстановления.")
+    }
+    persistenceReady = true
     if let url = Bundle.main.url(forResource: "zones", withExtension: "json"),
       let data = try? Data(contentsOf: url)
     {
@@ -93,53 +111,62 @@ final class AppModel: ObservableObject {
       zoneMessage = L("Карта из сохранённой копии. Для актуальных условий обновите данные.")
     }
   }
-  func add(_ vehicle: Vehicle, sync: Bool) async throws {
+  func add(_ vehicle: Vehicle) async throws {
     var vehicle = vehicle
     vehicle.nickname = Vehicle.cleanNickname(vehicle.nickname)
     guard !vehicles.contains(where: { $0.plate == vehicle.plate }) else {
       throw ParkoukaError.message(L("Этот автомобиль уже добавлен."))
     }
-    if sync { try await api.registerVehicle(vehicle) }
-    vehicles.append(vehicle)
-    selectedVehicleID = vehicle.id
+    var next = snapshot
+    next.vehicles.append(vehicle)
+    next.selectedVehicleID = vehicle.id
+    try commit(next)
   }
-  func begin(_ quote: ParkingQuote) {
-    if !sessions.contains(where: { $0.quote == quote }) {
-      sessions.insert(ParkingSession(quote: quote, state: .awaiting), at: 0)
+  @discardableResult
+  func begin(_ quote: ParkingQuote) -> Bool {
+    var next = snapshot
+    if !next.sessions.contains(where: { $0.quote == quote }) {
+      next.sessions.insert(ParkingSession(quote: quote, state: .awaiting), at: 0)
     }
+    do {
+      try commit(next)
+      return true
+    } catch { return false }
   }
   func removeVehicle(_ vehicle: Vehicle) {
-    vehicles.removeAll { $0.id == vehicle.id }
-    if selectedVehicleID == vehicle.id || !vehicles.contains(where: { $0.id == selectedVehicleID })
-    {
-      selectedVehicleID = vehicles.first?.id
+    var next = snapshot
+    next.vehicles.removeAll { $0.id == vehicle.id }
+    if !next.vehicles.contains(where: { $0.id == next.selectedVehicleID }) {
+      next.selectedVehicleID = next.vehicles.first?.id
     }
-    // A garage deletion does not cancel parking, erase receipts, or issue a refund.
+    try? commit(next)
   }
   func eraseLocalData() async {
+    do { try commit(ParkingSnapshot()) } catch { return }
     dataRevision = UUID()
-    vehicles = []
-    sessions = []
-    selectedVehicleID = nil
-    history = []
+    restoringVehicles.removeAll()
     checkMessage = nil
-    accountCheckMessage = nil
-    loggedIn = false
     UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-    await api.logout()
+    await api.resetGuestSession()
   }
-  /// Restores externally paid sessions using the six distinct payment-zone IDs,
-  /// rather than guessing a particular street or a payment amount.
+  /// Public coverage restores currently paid time, never historical account transactions.
   func restoreCurrentParking() async {
-    if isScreenshotSession { return }
-    guard let vehicle, !restoringVehicles.contains(vehicle.id) else { return }
-    restoringVehicles.insert(vehicle.id)
-    defer { restoringVehicles.remove(vehicle.id) }
+    guard !isScreenshotSession, store != nil, let vehicle, restoringVehicles[vehicle.id] == nil
+    else { return }
+    let revision = dataRevision
+    let workID = UUID()
+    restoringVehicles[vehicle.id] = workID
+    defer {
+      if restoringVehicles[vehicle.id] == workID {
+        restoringVehicles.removeValue(forKey: vehicle.id)
+      }
+    }
     let paymentZones = Dictionary(grouping: zones, by: \.paymentID).compactMap { $0.value.first }
     for zone in paymentZones {
-      guard !Task.isCancelled, self.vehicle?.id == vehicle.id else { return }
-      // Pending checkouts retain their own confirmation target.
+      guard !Task.isCancelled, revision == dataRevision, self.vehicle?.id == vehicle.id else {
+        return
+      }
       if pending.contains(where: {
         $0.quote.plate == vehicle.plate && $0.quote.zoneID == zone.paymentID
       }) {
@@ -147,78 +174,77 @@ final class AppModel: ObservableObject {
       }
       do {
         let status = try await api.start(
-          plate: vehicle.plate, zoneID: zone.paymentID,
-          tariff: vehicle.isBus ? 2 : 1)
-        guard !Task.isCancelled, self.vehicle?.id == vehicle.id,
+          plate: vehicle.plate, zoneID: zone.paymentID, tariff: vehicle.isBus ? 2 : 1)
+        guard !Task.isCancelled, revision == dataRevision, self.vehicle?.id == vehicle.id,
           let restored = ParkingSession.restored(
-            vehicle: vehicle, zone: zone, response: status, now: Date())
+            vehicle: vehicle, zone: zone, response: status, now: Date()),
+          let coverageEnd = restored.endDate
         else { continue }
-        if let index = sessions.firstIndex(where: {
-          $0.state == .confirmed && $0.quote.plate == vehicle.plate
-            && $0.quote.zoneID == zone.paymentID
-            && ($0.endDate ?? .distantPast) > Date()
-        }) {
-          sessions[index].confirmedValidTill = restored.confirmedValidTill
-          sessions[index].lastChecked = restored.lastChecked
-        } else {
-          sessions.insert(restored, at: 0)
+        var next = snapshot
+        let matching = next.sessions.indices.filter {
+          next.sessions[$0].state == .confirmed && next.sessions[$0].quote.plate == vehicle.plate
+            && next.sessions[$0].quote.zoneID == zone.paymentID
+            && (next.sessions[$0].endDate ?? .distantPast) > Date()
         }
+        if let latest = matching.max(by: {
+          (next.sessions[$0].endDate ?? .distantPast) < (next.sessions[$1].endDate ?? .distantPast)
+        }) {
+          if coverageEnd <= (next.sessions[latest].endDate ?? .distantPast).addingTimeInterval(1) {
+            next.sessions[latest].lastChecked = Date()
+          } else if next.sessions[latest].quote.amount.isEmpty {
+            next.sessions[latest].confirmedValidTill = restored.confirmedValidTill
+            next.sessions[latest].lastChecked = Date()
+          } else {
+            // Preserve a known transaction's amount and paid interval; extra coverage has no known receipt.
+            next.sessions.insert(restored, at: 0)
+          }
+        } else {
+          next.sessions.insert(restored, at: 0)
+        }
+        try commit(next)
       } catch {
-        checkMessage =
-          L("Не все зоны удалось проверить. Потяните список парковок вниз, чтобы повторить.")
+        guard revision == dataRevision, self.vehicle?.id == vehicle.id else { return }
+        checkMessage = L(
+          "Не все зоны удалось проверить. Потяните список парковок вниз, чтобы повторить.")
       }
     }
   }
   func checkPayments() async {
-    guard !checking, !pending.isEmpty else { return }
+    guard !checking, !pending.isEmpty, store != nil else { return }
     checking = true
     defer { checking = false }
     let revision = dataRevision
     var errors: [String] = []
     var confirmed = 0
-    var accountRows: [HistoryRow] = []
-    accountCheckMessage = nil
-    if loggedIn {
-      do {
-        accountRows = try await api.history()
-        guard revision == dataRevision else { return }
-        history = accountRows
-      } catch {
-        accountCheckMessage = L(
-          "История кабинета недоступна: %@", String(describing: error.localizedDescription))
-      }
-    }
     for entry in pending {
+      guard revision == dataRevision, !Task.isCancelled else { return }
+      // Public coverage proves only current paid time, never an expired attempt.
+      guard let end = entry.quote.endDate, end > Date() else { continue }
       do {
-        if let match = accountRows.first(where: { $0.matches(entry.quote) }),
-          let i = sessions.firstIndex(where: { $0.id == entry.id })
-        {
-          sessions[i].state = .confirmed
-          sessions[i].confirmationSource = .accountHistory
-          sessions[i].historyRowID = match.id
-          sessions[i].confirmedValidTill = match.valid_till
-          sessions[i].lastChecked = Date()
-          confirmed += 1
-          await scheduleReminder(for: sessions[i])
-          continue
-        }
-        // Current coverage cannot establish whether a past period was paid.
-        // An old attempt requires a matching account record instead.
-        guard let end = entry.quote.endDate, end > Date() else { continue }
         let status = try await api.start(
           plate: entry.quote.plate, zoneID: entry.quote.zoneID, tariff: entry.quote.tariff)
-        guard revision == dataRevision else { return }
+        guard revision == dataRevision, !Task.isCancelled else { return }
         guard let i = sessions.firstIndex(where: { $0.id == entry.id }) else { continue }
-        sessions[i].lastChecked = Date()
-        if entry.quote.isCovered(by: status, checkedAt: Date()) {
-          sessions[i].state = .confirmed
-          sessions[i].confirmationSource = .currentCoverage
-          sessions[i].confirmedValidTill = status.t_start
-          confirmed += 1
-          await scheduleReminder(for: sessions[i])
+        var next = snapshot
+        next.sessions[i].lastChecked = Date()
+        let paid = entry.quote.isCovered(by: status, checkedAt: Date())
+        if paid {
+          next.sessions[i].state = .confirmed
+          next.sessions[i].confirmationSource = .currentCoverage
+          // Keep the service-confirmed expiry, including any delay before payment completed.
+          next.sessions[i].confirmedValidTill = status.t_start
         }
-      } catch { errors.append(error.localizedDescription) }
+        try commit(next)
+        if paid {
+          confirmed += 1
+          await scheduleReminder(for: next.sessions[i], revision: revision)
+        }
+      } catch {
+        guard revision == dataRevision else { return }
+        errors.append(error.localizedDescription)
+      }
     }
+    guard revision == dataRevision else { return }
     checkMessage =
       errors.first
       ?? (confirmed > 0
@@ -227,34 +253,56 @@ final class AppModel: ObservableObject {
           "Оплата пока не подтверждена. Проверьте результат в банке; повторно оплачивать сразу не нужно."
         ))
   }
-  private func scheduleReminder(for entry: ParkingSession) async {
+  private func scheduleReminder(for entry: ParkingSession, revision: UUID) async {
     guard let end = entry.endDate, end.timeIntervalSinceNow > 600 else { return }
     let center = UNUserNotificationCenter.current()
-    guard (try? await center.requestAuthorization(options: [.alert, .sound])) == true else {
-      return
-    }
+    guard (try? await center.requestAuthorization(options: [.alert, .sound])) == true,
+      revision == dataRevision, end.timeIntervalSinceNow > 600
+    else { return }
     let content = UNMutableNotificationContent()
     content.title = L("Ещё 10 минут парковки")
-    content.body =
-      L(
-        "%@ · %@. При необходимости продлите время.", String(describing: entry.quote.plate),
-        String(describing: entry.quote.zoneTitle))
+    content.body = L(
+      "%@ · %@. При необходимости продлите время.", entry.quote.plate, entry.quote.zoneTitle)
     content.sound = .default
     let trigger = UNTimeIntervalNotificationTrigger(
       timeInterval: end.timeIntervalSinceNow - 600, repeats: false)
     try? await center.add(
       UNNotificationRequest(identifier: entry.id.uuidString, content: content, trigger: trigger))
-  }
-  private func persist<T: Encodable>(_ value: T, key: String) {
-    if let data = try? JSONEncoder().encode(value) {
-      defaults.set(data, forKey: key)
+    if revision != dataRevision {
+      center.removePendingNotificationRequests(withIdentifiers: [entry.id.uuidString])
+      center.removeDeliveredNotifications(withIdentifiers: [entry.id.uuidString])
     }
   }
-  private static func restore<T: Decodable>(_ type: T.Type, key: String, defaults: UserDefaults)
-    -> T?
-  {
-    guard let data = defaults.data(forKey: key) else { return nil }
-    return try? JSONDecoder().decode(type, from: data)
+  private var snapshot: ParkingSnapshot {
+    ParkingSnapshot(vehicles: vehicles, sessions: sessions, selectedVehicleID: selectedVehicleID)
+  }
+  private func apply(_ snapshot: ParkingSnapshot) {
+    let wasReady = persistenceReady
+    persistenceReady = false
+    vehicles = snapshot.vehicles
+    sessions = snapshot.sessions
+    selectedVehicleID = snapshot.selectedVehicleID
+    persistenceReady = wasReady
+  }
+  private func commit(_ snapshot: ParkingSnapshot) throws {
+    guard let store else {
+      let message = L("Локальное хранилище недоступно. Перезапустите приложение.")
+      storageMessage = message
+      throw ParkoukaError.message(message)
+    }
+    do { try store.save(snapshot) } catch {
+      let message = L(
+        "Не удалось сохранить данные на устройстве. Освободите место и повторите попытку.")
+      storageMessage = message
+      throw ParkoukaError.message(message)
+    }
+    durableSnapshot = snapshot
+    apply(snapshot)
+    storageMessage = nil
+  }
+  private func persistMutation() {
+    guard persistenceReady else { return }
+    do { try commit(snapshot) } catch { apply(durableSnapshot) }
   }
 }
 

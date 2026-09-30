@@ -13,6 +13,7 @@
 		2D71CB9143D338750BFD30B5 /* terms-be.json in Resources */ = {isa = PBXBuildFile; fileRef = 05865B9AA208F49F587C963A /* terms-be.json */; };
 		2E675766CF57594E3B373589 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFEF06DC231776A869B6E553 /* Localizable.strings */; };
 		3290536B83AA4386657CF3FB /* ScreenshotScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B307154967BCE310E4A98BC /* ScreenshotScenario.swift */; };
+		337CF65E77BFFB070CA5241F /* LocalParkingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84379517B52DC2D0087645A /* LocalParkingStore.swift */; };
 		396941BDCF76A1B544F08184 /* ParkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85ADE40253A3EB91EEE0614B /* ParkingTests.swift */; };
 		43E21934FD7906218A44FC4D /* terms-ru.json in Resources */ = {isa = PBXBuildFile; fileRef = CA3A032CFF4322D5308011B8 /* terms-ru.json */; };
 		4E8511A0F6A191CDDA033186 /* support-en.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DA895E9E509411477CE8587 /* support-en.json */; };
@@ -34,6 +35,7 @@
 		96E574DC32B2307F1C2097F1 /* privacy-ru.json in Resources */ = {isa = PBXBuildFile; fileRef = B976D157A37F34B6D15304BB /* privacy-ru.json */; };
 		9E2C5292EB7BA0D80F4FEAF7 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E199EA5A31FC74889F27C8 /* AppModel.swift */; };
 		A00795DC1C06BC3A189FDF48 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9CC5DD06C641E2575CE5DB2F /* PrivacyInfo.xcprivacy */; };
+		AAD71571F2BBFA5E649526F6 /* LocalParkingStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C28E440D79679891FC4CA26 /* LocalParkingStoreTests.swift */; };
 		B8BC787E6F729E12C788D484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC03612BFF287F9D6C22D264 /* Assets.xcassets */; };
 		C1584D87ADF84C6138FD880C /* terms-en.json in Resources */ = {isa = PBXBuildFile; fileRef = B5CA034E7B4C2B05E3C5753C /* terms-en.json */; };
 		C16FC4BB47D30D93B0C517CC /* CardCheckoutNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206B81604816C7B23B6C6FA5 /* CardCheckoutNavigation.swift */; };
@@ -43,6 +45,7 @@
 		DDAA0D1178A490A4E4A08ADD /* VehicleViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E06DCEC12A3CE13B79972D5 /* VehicleViews.swift */; };
 		E7FF3B90030E40516CB6E0F3 /* StajankaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30F7B4E4FEDE948943AC0AC /* StajankaUITests.swift */; };
 		FF259CBC3DF21B17093D7E93 /* StajankaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFA66F64AF32F5F6EBC86B3 /* StajankaApp.swift */; };
+		FF2B92E2822936D0A607F512 /* GuestPaymentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D7867EB61123B24F6B855 /* GuestPaymentTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +74,10 @@
 		206B81604816C7B23B6C6FA5 /* CardCheckoutNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCheckoutNavigation.swift; sourceTree = "<group>"; };
 		273EB3EFF106B1FD3F2F8EE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2C7E7B1BB0A1C2F47849D5FE /* StajankaTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StajankaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		345D7867EB61123B24F6B855 /* GuestPaymentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestPaymentTests.swift; sourceTree = "<group>"; };
 		36E199EA5A31FC74889F27C8 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		37E57EA5CF0732A55056E5DF /* support-be.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "support-be.json"; sourceTree = "<group>"; };
+		3C28E440D79679891FC4CA26 /* LocalParkingStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalParkingStoreTests.swift; sourceTree = "<group>"; };
 		4AD77F8D094AB38EF740C121 /* zones.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = zones.json; sourceTree = "<group>"; };
 		4C358BCA422F55D7B6A750C3 /* ReleaseReadinessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseReadinessTests.swift; sourceTree = "<group>"; };
 		4C4CF40A71ECE20ECF58A110 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -99,6 +104,7 @@
 		B976D157A37F34B6D15304BB /* privacy-ru.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "privacy-ru.json"; sourceTree = "<group>"; };
 		C30F7B4E4FEDE948943AC0AC /* StajankaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StajankaUITests.swift; sourceTree = "<group>"; };
 		C4ADB6EDC4CD71380D6B8FAA /* ParkoukaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkoukaAPI.swift; sourceTree = "<group>"; };
+		C84379517B52DC2D0087645A /* LocalParkingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalParkingStore.swift; sourceTree = "<group>"; };
 		CA3A032CFF4322D5308011B8 /* terms-ru.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "terms-ru.json"; sourceTree = "<group>"; };
 		CE2090E443AEC855BCFA8163 /* ParkingMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMapView.swift; sourceTree = "<group>"; };
 		D701BCB66C350F42922F2DD2 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
@@ -161,7 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				77A98F557ED0033FD4686936 /* CardCheckoutTests.swift */,
+				345D7867EB61123B24F6B855 /* GuestPaymentTests.swift */,
 				DE5D9D5EC322A9D0B541F7FD /* LocalizationVehicleTests.swift */,
+				3C28E440D79679891FC4CA26 /* LocalParkingStoreTests.swift */,
 				85ADE40253A3EB91EEE0614B /* ParkingTests.swift */,
 				4C358BCA422F55D7B6A750C3 /* ReleaseReadinessTests.swift */,
 			);
@@ -172,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				36E199EA5A31FC74889F27C8 /* AppModel.swift */,
+				C84379517B52DC2D0087645A /* LocalParkingStore.swift */,
 				C4ADB6EDC4CD71380D6B8FAA /* ParkoukaAPI.swift */,
 			);
 			path = Services;
@@ -353,6 +362,7 @@
 				C16FC4BB47D30D93B0C517CC /* CardCheckoutNavigation.swift in Sources */,
 				743F04E38868ED04A041C914 /* CardCheckoutView.swift in Sources */,
 				5637C2147A78E90E2143334E /* Design.swift in Sources */,
+				337CF65E77BFFB070CA5241F /* LocalParkingStore.swift in Sources */,
 				688CD518F36CF20F9AA721C7 /* Localization.swift in Sources */,
 				D2CAB0D884C6B1B19937C608 /* Models.swift in Sources */,
 				904AE5F3235A147E4BD1829E /* OnboardingView.swift in Sources */,
@@ -372,6 +382,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BAA5B633765A82AE32DEDF7 /* CardCheckoutTests.swift in Sources */,
+				FF2B92E2822936D0A607F512 /* GuestPaymentTests.swift in Sources */,
+				AAD71571F2BBFA5E649526F6 /* LocalParkingStoreTests.swift in Sources */,
 				8C2E96D18E39AB091E785234 /* LocalizationVehicleTests.swift in Sources */,
 				396941BDCF76A1B544F08184 /* ParkingTests.swift in Sources */,
 				94142952348A17004321FDB3 /* ReleaseReadinessTests.swift in Sources */,
@@ -495,7 +507,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -596,7 +608,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

@@ -1,6 +1,6 @@
 # Terms of Use
 
-2026-09-22
+2026-09-30
 
 ## Independent service
 
@@ -16,11 +16,11 @@ The app is free and does not add its own parking service fee or subscription. Pa
 
 ## Confirmation and reminders
 
-The app checks the service’s paid coverage or a sufficiently matching account record. Network failures and provider delays can postpone confirmation. Reminders depend on iOS permissions and device state and are not a guarantee against expiry. If payment is uncertain, check the bank result before paying again and keep your receipt.
+The app checks the service’s current paid coverage for the selected plate and zone. A local parking record is not a bank receipt or a complete account statement. Restored current coverage can lack historical transaction amounts. Network failures and provider delays can postpone confirmation. Reminders depend on iOS permissions and device state and are not a guarantee against expiry. If payment is uncertain, check the bank result before paying again and keep your receipt.
 
-## Refunds and external accounts
+## Refunds and external records
 
-For incorrect charges, refunds or disputes about parking, contact the payment recipient or parking operator through its official channels at https://parkouka.by/home/show/contact. Removing a vehicle or clearing app data does not reverse a payment. Existing Parkouka accounts and their deletion are managed by Parkouka; Stajanka does not create a separate account.
+For incorrect charges, refunds or disputes about parking, contact the payment recipient or parking operator through its official channels at https://parkouka.by/home/show/contact. Removing a vehicle or clearing app data does not reverse a payment. Stajanka does not create or connect external accounts and cannot delete records held by payment providers or parking operators.
 
 ## Availability and rights
 

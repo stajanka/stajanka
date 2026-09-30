@@ -79,6 +79,40 @@ final class StajankaUITests: XCTestCase {
     add(attachment)
     // Never tap Pay: these tests only calculate quotes and create local vehicles.
   }
+  func testLocalGarageWithoutAccountPersistsAfterRelaunch() {
+    let app = launchClean()
+    app.buttons["tab-2"].tap()
+    app.buttons["language-settings"].tap()
+    app.buttons["language-en"].tap()
+    XCTAssertTrue(app.staticTexts["My garage"].waitForExistence(timeout: 5))
+    let accountControls = NSPredicate(
+      format: "label CONTAINS[c] %@ OR label CONTAINS[c] %@ OR label CONTAINS[c] %@",
+      "account", "sign in", "log in")
+    XCTAssertEqual(app.buttons.matching(accountControls).count, 0)
+    XCTAssertEqual(app.secureTextFields.count, 0)
+    XCTAssertTrue(
+      app.staticTexts[
+        "The garage and parking history are stored on this device. No sign-in or registration is needed."
+      ].exists)
+
+    app.buttons["add-vehicle"].tap()
+    XCTAssertTrue(app.textFields["vehicle-plate"].waitForExistence(timeout: 5))
+    XCTAssertEqual(app.switches.matching(accountControls).count, 0)
+    XCTAssertEqual(app.secureTextFields.count, 0)
+    saveCar(app, plate: "5678AB7")
+    XCTAssertTrue(app.buttons["garage-vehicle-5678AB7"].waitForExistence(timeout: 5))
+
+    app.terminate()
+    // Retain the isolated test database across launches to exercise disk persistence.
+    app.launchArguments = ["--ui-testing"]
+    app.launch()
+    XCTAssertTrue(app.buttons["tab-2"].waitForExistence(timeout: 5))
+    app.buttons["tab-2"].tap()
+    XCTAssertTrue(app.staticTexts["My garage"].waitForExistence(timeout: 5))
+    XCTAssertTrue(app.buttons["garage-vehicle-5678AB7"].waitForExistence(timeout: 5))
+    XCTAssertEqual(app.buttons.matching(accountControls).count, 0)
+    XCTAssertEqual(app.secureTextFields.count, 0)
+  }
   func testThreeLanguagesSwitchAndPersist() {
     let app = launchClean()
     app.buttons["tab-2"].tap()
