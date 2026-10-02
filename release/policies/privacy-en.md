@@ -1,6 +1,6 @@
 # Privacy Policy
 
-2026-09-30
+2026-10-03
 
 ## Who is responsible
 
@@ -25,6 +25,10 @@ With your permission, foreground location is used to show your position and near
 ## Payments and provider pages
 
 ERIP opens a banking app or its payment website. Card checkout is provided by bePaid and may redirect to your bank for authentication. Card numbers, CVCs, cardholder details and bank credentials are entered in the provider or bank interface. Stajanka’s native code does not read or persist those fields. Provider pages may collect transaction, network and device-security data and use their own cookies and scripts. Network providers necessarily receive connection information such as your IP address. Their retention and processing are governed by their own notices.
+
+## SMS parking payments
+
+If you choose SMS, the app prepares a message to short number 204 containing the selected parking zone, vehicle plate and duration; a bus tariff marker is included when applicable. Copying or opening the SMS composer places this draft on the system clipboard. The iOS message composer lets you review, edit, send or cancel it. Stajanka never sends an SMS automatically and does not read incoming messages or obtain your phone number from the device. If you send the message, your mobile carrier and the SMS payment service receive its content and your sending phone number for routing, payment and service processing under their own terms and privacy notices. The app records the local payment attempt and checks paid parking through Parkouka; the composer’s result alone is not payment confirmation. Clearing Stajanka’s local data does not erase messages from Messages, clipboard contents or records held by the carrier or payment service.
 
 ## Analytics and support
 

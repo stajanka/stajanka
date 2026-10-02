@@ -1,6 +1,6 @@
 # Terms of Use
 
-2026-09-30
+2026-10-03
 
 ## Independent service
 
@@ -12,7 +12,11 @@ Before paying, check the vehicle plate, zone number on the physical sign, vehicl
 
 ## Prices and payments
 
-The app is free and does not add its own parking service fee or subscription. Parking is a real-world service paid to the relevant operator through ERIP or bePaid. The final amount comes from the parking service. Bank or currency-conversion charges, if any, are determined by your provider. Opening or closing checkout is not proof that payment succeeded.
+The app is free and does not add its own parking service fee or subscription. Parking is a real-world service paid to the relevant operator through ERIP, bePaid or the operator’s SMS service. The final amount comes from the parking service. Bank or currency-conversion charges, if any, are determined by your provider. Opening or closing checkout is not proof that payment succeeded.
+
+## SMS conditions
+
+SMS payment is offered for supported zones and tariffs when the quoted amount is positive and no more than 30 BYN. The app prepares the operator’s command for short number 204. You decide whether to send it in the system message composer; copying the text or opening that composer does not pay for parking. The service charges parking through the mobile-phone balance. Availability, sufficient balance, permitted numbers, carrier charges and any service fees are governed by the mobile carrier and payment service; Stajanka does not set those terms. Check the message, the operator’s reply and the payment result before sending again. A sent-message result is not proof of delivery or payment. Stajanka cannot read the incoming confirmation SMS or verify a manually sent copy until the parking service reports paid coverage.
 
 ## Confirmation and reminders
 
